@@ -1,8 +1,23 @@
-# AstroNeuron
+AstroNeuron
+===========
 
+AstroNeuron is a growing collection of astrophysical data analysis codes by the application of machine learning algorithm.
+
+`LWR.py` is the core code for locally weighted regression.
+
+`smoothFit.py` tends to fit scattered data points by a smooth curve.
+
+`integratePL.py` integrates a curve composed of numerous power-law functions.
+
+`findFlat.py` finds the flat parts of a curve.
+
+
+
+Theory and Application
+======================
 
 Data Fitting
-============
+-----------------
 
 The most common function to fit GRB spectrum and light-curve is power-law 
 <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/dab0fc48b71c47a17b071fb6c7db41b8.svg?invert_in_darkmode" align=middle width=61.243545pt height=14.9075025pt/></p> 

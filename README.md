@@ -5,10 +5,10 @@ Data Fitting
 ============
 
 The most common function to fit GRB spectrum and light-curve is
-power-law $$y = C x^\alpha$$ C is the normalization, and $\alpha$ is the
+power-law <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/dab0fc48b71c47a17b071fb6c7db41b8.svg?invert_in_darkmode" align=middle width=61.243545pt height=14.9075025pt/></p> C is the normalization, and <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/c745b9b57c145ec5577b82542b2df546.svg?invert_in_darkmode" align=middle width=10.537065000000004pt height=14.102549999999994pt/> is the
 power-law index, they can be found by fitting the observed data. The
 logarithm of a power-law gives a linear function
-$$log(y) = log(C) + \alpha log(x),$$ which enables to apply linear
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/2952373812b34a8c8067a39cff1d8f53.svg?invert_in_darkmode" align=middle width=190.72019999999998pt height=16.376943pt/></p> which enables to apply linear
 regression, here we first introduce a popular algorithm in the compute
 science of machine learning, gradient decedent.
 
@@ -17,33 +17,33 @@ Gradient Decedent
 
 Gradient decedent is universal in fitting functions which have partial
 derivatives, here the example of fitting luminosity light-curve deals
-with a simple linear function, which is written as $$L(t) = C t^\alpha$$
+with a simple linear function, which is written as <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f09c56c139c6283e72f821b5419d5478.svg?invert_in_darkmode" align=middle width=78.97559999999999pt height=16.376943pt/></p>
 The logarithm linearizes the function
-$$log(L) = log(C) + \alpha log(t)$$ From observation, we have $m$ data
-points that the luminosity ($L^j_{obs}$ in unit of erg/s) at different
-time ($t^j$ in unit of s), the superscript $j$ indicates different data
-points, its upper boundary is $m$. We generalize the function as
-$$h^j =\theta^i x^{ij}$$ where in our example, $h^j=log(L^j)$,
-$\theta = \{log(C),\alpha\}$, and $x^{ij} = \{1, log(t^j)\}$. Einstein
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/ecd9bfa44cb67d9a664ea00c70491815.svg?invert_in_darkmode" align=middle width=185.25209999999998pt height=16.376943pt/></p> From observation, we have <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode" align=middle width=14.379255000000002pt height=14.102549999999994pt/> data
+points that the luminosity (<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/d357c0f4e0aed6fa5d9e1de9b3fbc96d.svg?invert_in_darkmode" align=middle width=29.550345pt height=30.970500000000015pt/> in unit of erg/s) at different
+time (<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/ad55554f53d626f2820a57a84bb7fc79.svg?invert_in_darkmode" align=middle width=11.995665pt height=27.102240000000002pt/> in unit of s), the superscript <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/36b5afebdba34564d884d347484ac0c7.svg?invert_in_darkmode" align=middle width=7.681657500000003pt height=21.602129999999985pt/> indicates different data
+points, its upper boundary is <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode" align=middle width=14.379255000000002pt height=14.102549999999994pt/>. We generalize the function as
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/1b7da869b1d4d38e484f6368796ddf1b.svg?invert_in_darkmode" align=middle width=71.92465499999999pt height=14.372968499999997pt/></p> where in our example, <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/883b72489b0ca4c4cf94e4e46ae92455.svg?invert_in_darkmode" align=middle width=90.59094pt height=27.102240000000002pt/>,
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/b9d1138e09740efedb690afc244052fa.svg?invert_in_darkmode" align=middle width=111.38539499999999pt height=24.56552999999997pt/>, and <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8ab2c2fecfc411a20a5e3ae6acf205ac.svg?invert_in_darkmode" align=middle width=121.78881pt height=27.102240000000002pt/>. Einstein
 summation convention is adopted to simplify the summing symbol if not
 specified.
 
 Now we define a function which measures the difference between the
-theoretical value $h^j=log(L^j)$ and the observed value
-$y^j = log(L^j_{obs})$, named *cost function*, which is a scalar
-$$J = \frac{1}{2m} (h^j-y^j)^2.$$ To find the best fitting parameters
-$\theta$ is equivalent to minimize the cost function $J$. In practice,
-we first guess an initial $\theta^i$, then repeatedly update the
-$\theta^i$ to obtain the minimal $J$, the updating method is to change
-$\theta^i$ along the direction of the gradient of $J$
-$$\theta^i = \theta^i - \epsilon \frac{\partial J}{\partial \theta^i}$$
-here $\epsilon$ is the step of change, it is called *learning rate* in
-machine learning, smaller $\epsilon$ increases the precision but it
+theoretical value <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/883b72489b0ca4c4cf94e4e46ae92455.svg?invert_in_darkmode" align=middle width=90.59094pt height=27.102240000000002pt/> and the observed value
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/5d8a055b6e149031113aa2cbbe1dc30a.svg?invert_in_darkmode" align=middle width=102.14358000000001pt height=30.970500000000015pt/>, named *cost function*, which is a scalar
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0bbd07203c3b875fe4bca8832845780a.svg?invert_in_darkmode" align=middle width=135.742035pt height=32.950664999999994pt/></p> To find the best fitting parameters
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> is equivalent to minimize the cost function <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8eb543f68dac24748e65e2e4c5fc968c.svg?invert_in_darkmode" align=middle width=10.656360000000001pt height=22.381919999999983pt/>. In practice,
+we first guess an initial <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f8fde23553817f1c9e46f796b07fd95a.svg?invert_in_darkmode" align=middle width=12.778260000000003pt height=27.102240000000002pt/>, then repeatedly update the
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f8fde23553817f1c9e46f796b07fd95a.svg?invert_in_darkmode" align=middle width=12.778260000000003pt height=27.102240000000002pt/> to obtain the minimal <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8eb543f68dac24748e65e2e4c5fc968c.svg?invert_in_darkmode" align=middle width=10.656360000000001pt height=22.381919999999983pt/>, the updating method is to change
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f8fde23553817f1c9e46f796b07fd95a.svg?invert_in_darkmode" align=middle width=12.778260000000003pt height=27.102240000000002pt/> along the direction of the gradient of <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8eb543f68dac24748e65e2e4c5fc968c.svg?invert_in_darkmode" align=middle width=10.656360000000001pt height=22.381919999999983pt/>
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/76f9574add291dab79605850bd410575.svg?invert_in_darkmode" align=middle width=101.05507499999999pt height=33.769394999999996pt/></p>
+here <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode" align=middle width=6.647503500000004pt height=14.102549999999994pt/> is the step of change, it is called *learning rate* in
+machine learning, smaller <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode" align=middle width=6.647503500000004pt height=14.102549999999994pt/> increases the precision but it
 takes longer time to converge. The gradient gives
-$$\frac{\partial J}{\partial \theta_i} = \frac{1}{2m} \frac{\partial}{\partial \theta^i} (\theta^i x^{ij}-y^j)^2 = \frac{1}{m}(h^j-y^j) x^{ij}$$
-indicators $i,j$ written as superscript or subscripts actually have no
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/e7ed203a109373d944b2509f1cc936a0.svg?invert_in_darkmode" align=middle width=315.7704pt height=36.235155pt/></p>
+indicators <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/4fe48dde86ac2d37419f0b35d57ac460.svg?invert_in_darkmode" align=middle width=20.612625000000005pt height=21.602129999999985pt/> written as superscript or subscripts actually have no
 difference since a flat metric is implicitly used. The final fitted
-$\theta$ converges after iterations.
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> converges after iterations.
 
 **Python sample code: gradient descent**
 
@@ -86,20 +86,20 @@ on the size of segment. An almost equivalent way of thinking is
 predicting a set of y at a given set of x by fitting their nearby
 observed data points, then connect all the predicted points. Locally
 weighted regression (LWR) is an algorithm designed for the above
-purpose, if we want to predict the value of $y^{i*}$ at a given
-$x^{i*}$, we first need to compute the distance of observed data with
-respect to $\hat{x}$ $$D = x^{ij} - x^{i*}$$ for having a local fitting,
+purpose, if we want to predict the value of <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/bcdeda17201a1389003ceab61d2b0ff3.svg?invert_in_darkmode" align=middle width=19.962690000000002pt height=27.102240000000002pt/> at a given
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/47aed00bf7aee78e0e593b45608b7e42.svg?invert_in_darkmode" align=middle width=20.703540000000004pt height=27.102240000000002pt/>, we first need to compute the distance of observed data with
+respect to <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f84e86b97e20e45cc17d297dc794b3e8.svg?invert_in_darkmode" align=middle width=9.359955000000003pt height=22.745910000000016pt/> <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/fb0c5098128fa55ec20a6b97c993fca0.svg?invert_in_darkmode" align=middle width=97.569285pt height=15.737732999999999pt/></p> for having a local fitting,
 the nearby data shall be more important than the distant ones, we use
 *weight* to quantify, a common selection of weight is an exponential
 function of the distance
-$$\omega^j =  \underset{i}{\Sigma} \exp(-\frac{(x^{ij}-x^{i*})^2}{2 \tau^2})$$
-the parameter $\tau$ controls the range of effective data points,
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7b69c0f3d9159295c45f975e4a2ab759.svg?invert_in_darkmode" align=middle width=191.55345pt height=35.947559999999996pt/></p>
+the parameter <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0fe1677705e987cac4f589ed600aa6b3.svg?invert_in_darkmode" align=middle width=9.013125000000002pt height=14.102549999999994pt/> controls the range of effective data points,
 affecting the smoothness. The cost function which is going to be
 minimized has an additional term of weight
-$$J = \frac{1}{2m} \omega^j (h^j-y^j)^2.$$ its gradient becomes
-$$\frac{\partial J}{\partial \theta_i} = \frac{1}{2m} \frac{\partial}{\partial \theta^i} \omega^j (\theta_k x^{kj}-y^j)^2 = \frac{1}{m} \omega^j (h^j-y^j) x^{ij}$$
-the iteration of $\theta$ keeps the same form as before
-$$\theta^i = \theta^i - \epsilon \frac{\partial J}{\partial \theta_i}$$
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/bf8c51d107c54f2e9998757937931315.svg?invert_in_darkmode" align=middle width=153.452145pt height=32.950664999999994pt/></p> its gradient becomes
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/ab08c3c0bb9b52c7f7074fcda80a26a6.svg?invert_in_darkmode" align=middle width=355.96275pt height=36.235155pt/></p>
+the iteration of <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> keeps the same form as before
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/be95025c2ea7a5747384c2d5ff526c89.svg?invert_in_darkmode" align=middle width=100.598355pt height=36.235155pt/></p>
 
 **Python sample code: locally weighted regression using gradient
 descent**
@@ -144,14 +144,14 @@ descent**
 Normal Equation
 ---------------
 
-For polynomial functions as we used for examples, $\theta$ can be solved
-directly from the minimal of the cost function $J$,
-$$\frac{\partial J}{\partial \theta^i} = 0$$ we expand
-$$\frac{\partial J}{\partial \theta_i} = \frac{1}{m} \omega^j (h^j-y^j) x^{ij} = 0$$
-and $\theta$ is obtained
-$$\theta^i = (x^{kj}\omega^{j}x^{ji})^{-1}(x^{kj}\omega^{j}y^{j})$$ this
+For polynomial functions as we used for examples, <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> can be solved
+directly from the minimal of the cost function <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8eb543f68dac24748e65e2e4c5fc968c.svg?invert_in_darkmode" align=middle width=10.656360000000001pt height=22.381919999999983pt/>,
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/ba42a32bf3b781c2e36da61f28cc7ec5.svg?invert_in_darkmode" align=middle width=55.317735pt height=33.769394999999996pt/></p> we expand
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/d8f3fb74fa2a778689b125a8ab6be0cb.svg?invert_in_darkmode" align=middle width=198.44549999999998pt height=36.235155pt/></p>
+and <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> is obtained
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/5d4cfc755ec7ffbea1449d418af946cb.svg?invert_in_darkmode" align=middle width=197.61885pt height=18.842505pt/></p> this
 direct way needs to do the inverse of matrix, which is time consuming if
-$\theta$ has a thousands of dimensions, but for limited number of
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> has a thousands of dimensions, but for limited number of
 dimensions, as in our example, normal equation is faster than gradient
 descent.
 
@@ -177,7 +177,7 @@ Example of smoothly fitting light-curve
 Let’s smoothly fit the luminosity light-curve of GRB 081008 in its
 cosmological rest frame, data is saved in the file *081008.csv*, first
 we refine the code for the smoothness, smoothness increases by setting
-the parameter from $0$ to $1$, which kindly represents the percentage of
+the parameter from <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/29632a9bf827ce0200454dd32fc3be82.svg?invert_in_darkmode" align=middle width=8.188554000000002pt height=21.10812pt/> to <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/034d0a6be0424bffe9a6e7ac9236c0f5.svg?invert_in_darkmode" align=middle width=8.188554000000002pt height=21.10812pt/>, which kindly represents the percentage of
 data that play effective role in predicting at a given point.
 
 **Python sample code: refined weight function**
@@ -239,9 +239,11 @@ and make a plot using *matplotlib*.
     plt.xlabel('Log[Time (s)]',fontsize=12)
     plt.ylabel('Log[Luminosity (erg/s)]',fontsize=12)
 
-![Example of LWR. Fitting a light-curve from GRB 081008, blue points are
+Example of LWR. Fitting a light-curve from GRB 081008, blue points are
 the data points, green line is the fitting using LWR with smoothness
-0.08.[]{data-label="fig:LWRexample"}](LWRexample.pdf){width="85.00000%"}
+0.08.
+![light-curve of GRB 081008](https://github.com/YWangScience/AstroNeuron/blob/master/LWRexample.png){width="85.00000%"}
+
 
 Energy integration form scattered data points
 =============================================
@@ -249,15 +251,15 @@ Energy integration form scattered data points
 With the LWR algorithm, we are able to fit the observed scattered data
 points with a smooth curve, which is composed of numerous linear
 functions, the area of this curve covers
-$$\int h dx  \simeq  \frac{1}{2} \theta_{ik} x^2 |_{x=x_{ik}}^{x=x_{ik+1}} ~~\text{or}~~ \theta_{ik} x_{ik} (x_{ik+1} -x_{ik})$$
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/60ed6771f4da2b9d800ab445e8f7ef95.svg?invert_in_darkmode" align=middle width=346.40099999999995pt height=36.393555pt/></p>
 here k indicates the k*th* linear function.
 
 Continue with the luminosity example, we need to return linear to
 logarithmic first
-$$L(t) = C t^\alpha = 10^{\theta_{0k}} t_k^{\theta_{1k}}$$
-$$t_k = 10^{x_{1k}}$$ The energy in the a given time interval is given
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/b838cbdda19d9326a2913e0945e044e5.svg?invert_in_darkmode" align=middle width=162.00459pt height=20.326185pt/></p>
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/26dd3ae438094ebc0bcecc14c8138b47.svg?invert_in_darkmode" align=middle width=71.58855pt height=14.1888285pt/></p> The energy in the a given time interval is given
 by
-$$E = \int L(t) dt \simeq \frac{1}{1+\theta_{1k}} 10^{\theta_{0k}} t^{1+\theta_{1k}} |_{t=t_{k}}^{t=t_{k+1}}  ~~\text{or}~~ 10^{\theta_{0k}} t_{k}^{\theta_{1k}} (t_{k+1}-t_{k})$$
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/31c88483ff7138c8534febd243410863.svg?invert_in_darkmode" align=middle width=476.1058499999999pt height=36.393555pt/></p>
 
 **Python sample code: Integration of power-law**
 
@@ -274,7 +276,7 @@ $$E = \int L(t) dt \simeq \frac{1}{1+\theta_{1k}} 10^{\theta_{0k}} t^{1+\theta_{
     integratePL(xs,thetas)       
     2.1387610450550029e+52
 
-The total energy in Fig. \[fig:LWRexample\] is $2.14 \times 10^{52}$
+The total energy in Fig. \[fig:LWRexample\] is <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7ca51fc1935ba5d77fbfef820cbfb977.svg?invert_in_darkmode" align=middle width=78.59131500000001pt height=26.70657pt/>
 erg.
 
 Static evolution from scattered data points
@@ -283,14 +285,14 @@ Static evolution from scattered data points
 Let’s start with an example, that we are planning to find a time range
 that the spectra has no evolution except the amplitude, the spectrum can
 always be fitted by a power-law, and we have already known the power-law
-amplitude $A_k$ and the spectral index $\beta_k$ at different scattered
-time $t_k$. $$F = A \epsilon^\beta$$ where F is the spectrum in unit of
-$s^{-1}cm^{-2} keV^{-1}$ and $\epsilon$ is the energy of photon in unit
-of $keV$.
+amplitude <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/1f0aa5770083d7bade7ac8aafcbfc008.svg?invert_in_darkmode" align=middle width=19.521645000000003pt height=22.381919999999983pt/> and the spectral index <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/9c45015d0ef86d5f2d4cf3cc401f18b2.svg?invert_in_darkmode" align=middle width=16.502145000000002pt height=22.745910000000016pt/> at different scattered
+time <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/509bf7d4f0f63616580a39c4ed8b527d.svg?invert_in_darkmode" align=middle width=13.152810000000004pt height=20.14650000000001pt/>. <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/6044ce6c3b680a5a7be4d285d153cdd1.svg?invert_in_darkmode" align=middle width=61.629645pt height=14.748277499999999pt/></p> where F is the spectrum in unit of
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/21e72c507aa93b3cb7f81aebf3280864.svg?invert_in_darkmode" align=middle width=111.07882499999998pt height=26.70657pt/> and <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode" align=middle width=6.647503500000004pt height=14.102549999999994pt/> is the energy of photon in unit
+of <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/490bd9d7208632021d6f132bf88dd2af.svg?invert_in_darkmode" align=middle width=29.861535000000003pt height=22.745910000000016pt/>.
 
 The procedure is first to fit the power-law index at different time
-$\beta_k$ with a smooth curve, then to find the time range of the curve
-where its tangent’s slope is close to $0$.
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/9c45015d0ef86d5f2d4cf3cc401f18b2.svg?invert_in_darkmode" align=middle width=16.502145000000002pt height=22.745910000000016pt/> with a smooth curve, then to find the time range of the curve
+where its tangent’s slope is close to <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/29632a9bf827ce0200454dd32fc3be82.svg?invert_in_darkmode" align=middle width=8.188554000000002pt height=21.10812pt/>.
 
 **Python sample code: constant spectral index**
 
@@ -344,7 +346,7 @@ where its tangent’s slope is close to $0$.
 
 In the above example, the curve is composed of 100 points, and the
 threshold is that the slope of the spectral index curve is smaller than
-$0.2$. Six time ranges are found in this example, but 4 of them contains
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/358d4d0949e47523757b4bc797ab597e.svg?invert_in_darkmode" align=middle width=20.92629pt height=21.10812pt/>. Six time ranges are found in this example, but 4 of them contains
 only one point, which can be neglected since the time interval is quite
 small, probably just transitions, finally two time ranges we shall
 consider.

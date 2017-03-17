@@ -6,7 +6,7 @@ Data Fitting
 
 The most common function to fit GRB spectrum and light-curve is power-law 
 <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/dab0fc48b71c47a17b071fb6c7db41b8.svg?invert_in_darkmode" align=middle width=61.243545pt height=14.9075025pt/></p> 
-C is the normalization, and <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/c745b9b57c145ec5577b82542b2df546.svg?invert_in_darkmode" align=left width=10.537065000000004pt height=14.102549999999994pt/> is the power-law index, they can be found by fitting the observed data. The logarithm of a power-law gives a linear function
+<p>C is the normalization, and <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/c745b9b57c145ec5577b82542b2df546.svg?invert_in_darkmode" align=middle width=10.537065000000004pt height=14.102549999999994pt/>  is the power-law index, they can be found by fitting the observed data. The logarithm of a power-law gives a linear function </p>
 <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/2952373812b34a8c8067a39cff1d8f53.svg?invert_in_darkmode" align=middle width=190.72019999999998pt height=16.376943pt/></p> 
 which enables to apply linear regression, here we first introduce a popular algorithm in the compute science of machine learning, gradient decedent. 
 

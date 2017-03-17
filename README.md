@@ -17,31 +17,32 @@ Gradient decedent is universal in fitting functions which have partial
 derivatives, here the example of fitting luminosity light-curve deals
 with a simple linear function, which is written as <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f09c56c139c6283e72f821b5419d5478.svg?invert_in_darkmode" align=middle width=78.97559999999999pt height=16.376943pt/></p>
 The logarithm linearizes the function
-<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/ecd9bfa44cb67d9a664ea00c70491815.svg?invert_in_darkmode" align=middle width=185.25209999999998pt height=16.376943pt/></p> From observation, we have <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode" align=middle width=14.379255000000002pt height=14.102549999999994pt/> data
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/ecd9bfa44cb67d9a664ea00c70491815.svg?invert_in_darkmode" align=middle width=185.25209999999998pt height=16.376943pt/></p> 
+<p> From observation, we have <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode" align=middle width=14.379255000000002pt height=14.102549999999994pt/> data
 points that the luminosity (<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/d357c0f4e0aed6fa5d9e1de9b3fbc96d.svg?invert_in_darkmode" align=middle width=29.550345pt height=30.970500000000015pt/> in unit of erg/s) at different
 time (<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/ad55554f53d626f2820a57a84bb7fc79.svg?invert_in_darkmode" align=middle width=11.995665pt height=27.102240000000002pt/> in unit of s), the superscript <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/36b5afebdba34564d884d347484ac0c7.svg?invert_in_darkmode" align=middle width=7.681657500000003pt height=21.602129999999985pt/> indicates different data
-points, its upper boundary is <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode" align=middle width=14.379255000000002pt height=14.102549999999994pt/>. We generalize the function as
-<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/1b7da869b1d4d38e484f6368796ddf1b.svg?invert_in_darkmode" align=middle width=71.92465499999999pt height=14.372968499999997pt/></p> where in our example, <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/883b72489b0ca4c4cf94e4e46ae92455.svg?invert_in_darkmode" align=middle width=90.59094pt height=27.102240000000002pt/>,
+points, its upper boundary is <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0e51a2dede42189d77627c4d742822c3.svg?invert_in_darkmode" align=middle width=14.379255000000002pt height=14.102549999999994pt/>. We generalize the function as </p>
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/1b7da869b1d4d38e484f6368796ddf1b.svg?invert_in_darkmode" align=middle width=71.92465499999999pt height=14.372968499999997pt/></p> <p>where in our example, <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/883b72489b0ca4c4cf94e4e46ae92455.svg?invert_in_darkmode" align=middle width=90.59094pt height=27.102240000000002pt/>,
 <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/b9d1138e09740efedb690afc244052fa.svg?invert_in_darkmode" align=middle width=111.38539499999999pt height=24.56552999999997pt/>, and <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8ab2c2fecfc411a20a5e3ae6acf205ac.svg?invert_in_darkmode" align=middle width=121.78881pt height=27.102240000000002pt/>. Einstein
 summation convention is adopted to simplify the summing symbol if not
-specified.
+specified. </p>
 
 Now we define a function which measures the difference between the
 theoretical value <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/883b72489b0ca4c4cf94e4e46ae92455.svg?invert_in_darkmode" align=middle width=90.59094pt height=27.102240000000002pt/> and the observed value
 <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/5d8a055b6e149031113aa2cbbe1dc30a.svg?invert_in_darkmode" align=middle width=102.14358000000001pt height=30.970500000000015pt/>, named *cost function*, which is a scalar
-<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0bbd07203c3b875fe4bca8832845780a.svg?invert_in_darkmode" align=middle width=135.742035pt height=32.950664999999994pt/></p> To find the best fitting parameters
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0bbd07203c3b875fe4bca8832845780a.svg?invert_in_darkmode" align=middle width=135.742035pt height=32.950664999999994pt/></p> <p>To find the best fitting parameters
 <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> is equivalent to minimize the cost function <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8eb543f68dac24748e65e2e4c5fc968c.svg?invert_in_darkmode" align=middle width=10.656360000000001pt height=22.381919999999983pt/>. In practice,
 we first guess an initial <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f8fde23553817f1c9e46f796b07fd95a.svg?invert_in_darkmode" align=middle width=12.778260000000003pt height=27.102240000000002pt/>, then repeatedly update the
 <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f8fde23553817f1c9e46f796b07fd95a.svg?invert_in_darkmode" align=middle width=12.778260000000003pt height=27.102240000000002pt/> to obtain the minimal <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8eb543f68dac24748e65e2e4c5fc968c.svg?invert_in_darkmode" align=middle width=10.656360000000001pt height=22.381919999999983pt/>, the updating method is to change
-<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f8fde23553817f1c9e46f796b07fd95a.svg?invert_in_darkmode" align=middle width=12.778260000000003pt height=27.102240000000002pt/> along the direction of the gradient of <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8eb543f68dac24748e65e2e4c5fc968c.svg?invert_in_darkmode" align=middle width=10.656360000000001pt height=22.381919999999983pt/>
-<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/76f9574add291dab79605850bd410575.svg?invert_in_darkmode" align=middle width=101.05507499999999pt height=33.769394999999996pt/></p>
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f8fde23553817f1c9e46f796b07fd95a.svg?invert_in_darkmode" align=middle width=12.778260000000003pt height=27.102240000000002pt/> along the direction of the gradient of </p> <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8eb543f68dac24748e65e2e4c5fc968c.svg?invert_in_darkmode" align=middle width=10.656360000000001pt height=22.381919999999983pt/>
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/76f9574add291dab79605850bd410575.svg?invert_in_darkmode" align=middle width=101.05507499999999pt height=33.769394999999996pt/></p> <p>
 here <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode" align=middle width=6.647503500000004pt height=14.102549999999994pt/> is the step of change, it is called *learning rate* in
 machine learning, smaller <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode" align=middle width=6.647503500000004pt height=14.102549999999994pt/> increases the precision but it
-takes longer time to converge. The gradient gives
+takes longer time to converge. The gradient gives </p>
 <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/e7ed203a109373d944b2509f1cc936a0.svg?invert_in_darkmode" align=middle width=315.7704pt height=36.235155pt/></p>
-indicators <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/4fe48dde86ac2d37419f0b35d57ac460.svg?invert_in_darkmode" align=middle width=20.612625000000005pt height=21.602129999999985pt/> written as superscript or subscripts actually have no
+<p>indicators <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/4fe48dde86ac2d37419f0b35d57ac460.svg?invert_in_darkmode" align=middle width=20.612625000000005pt height=21.602129999999985pt/> written as superscript or subscripts actually have no
 difference since a flat metric is implicitly used. The final fitted
-<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> converges after iterations.
+<img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> converges after iterations. </p>
 
 **Python sample code: gradient descent**
 
@@ -90,13 +91,13 @@ respect to <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/f84
 the nearby data shall be more important than the distant ones, we use
 *weight* to quantify, a common selection of weight is an exponential
 function of the distance
-<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7b69c0f3d9159295c45f975e4a2ab759.svg?invert_in_darkmode" align=middle width=191.55345pt height=35.947559999999996pt/></p>
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7b69c0f3d9159295c45f975e4a2ab759.svg?invert_in_darkmode" align=middle width=191.55345pt height=35.947559999999996pt/></p> <p>
 the parameter <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/0fe1677705e987cac4f589ed600aa6b3.svg?invert_in_darkmode" align=middle width=9.013125000000002pt height=14.102549999999994pt/> controls the range of effective data points,
 affecting the smoothness. The cost function which is going to be
-minimized has an additional term of weight
+minimized has an additional term of weight </p>
 <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/bf8c51d107c54f2e9998757937931315.svg?invert_in_darkmode" align=middle width=153.452145pt height=32.950664999999994pt/></p> its gradient becomes
-<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/ab08c3c0bb9b52c7f7074fcda80a26a6.svg?invert_in_darkmode" align=middle width=355.96275pt height=36.235155pt/></p>
-the iteration of <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> keeps the same form as before
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/ab08c3c0bb9b52c7f7074fcda80a26a6.svg?invert_in_darkmode" align=middle width=355.96275pt height=36.235155pt/></p> 
+<p>the iteration of <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> keeps the same form as before </p>
 <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/be95025c2ea7a5747384c2d5ff526c89.svg?invert_in_darkmode" align=middle width=100.598355pt height=36.235155pt/></p>
 
 **Python sample code: locally weighted regression using gradient
@@ -146,12 +147,10 @@ For polynomial functions as we used for examples, <img src="https://rawgit.com/Y
 directly from the minimal of the cost function <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/8eb543f68dac24748e65e2e4c5fc968c.svg?invert_in_darkmode" align=middle width=10.656360000000001pt height=22.381919999999983pt/>,
 <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/ba42a32bf3b781c2e36da61f28cc7ec5.svg?invert_in_darkmode" align=middle width=55.317735pt height=33.769394999999996pt/></p> we expand
 <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/d8f3fb74fa2a778689b125a8ab6be0cb.svg?invert_in_darkmode" align=middle width=198.44549999999998pt height=36.235155pt/></p>
-and <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> is obtained
-<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/5d4cfc755ec7ffbea1449d418af946cb.svg?invert_in_darkmode" align=middle width=197.61885pt height=18.842505pt/></p> this
-direct way needs to do the inverse of matrix, which is time consuming if
+<p>and <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> is obtained </p>
+<p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/5d4cfc755ec7ffbea1449d418af946cb.svg?invert_in_darkmode" align=middle width=197.61885pt height=18.842505pt/></p> <p> this direct way needs to do the inverse of matrix, which is time consuming if
 <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode" align=middle width=8.143030500000002pt height=22.745910000000016pt/> has a thousands of dimensions, but for limited number of
-dimensions, as in our example, normal equation is faster than gradient
-descent.
+dimensions, as in our example, normal equation is faster than gradient descent. </p>
 
 **Python sample code: Normal equation for locally weighted regression**
 
@@ -240,7 +239,7 @@ and make a plot using *matplotlib*.
 Example of LWR. Fitting a light-curve from GRB 081008, blue points are
 the data points, green line is the fitting using LWR with smoothness
 0.08.
-![light-curve of GRB 081008](https://github.com/YWangScience/AstroNeuron/blob/master/LWRexample.png){width="85.00000%"}
+![light-curve of GRB 081008](https://github.com/YWangScience/AstroNeuron/blob/master/LWRexample.png)
 
 
 Energy integration form scattered data points
@@ -274,7 +273,7 @@ by
     integratePL(xs,thetas)       
     2.1387610450550029e+52
 
-The total energy in Fig. \[fig:LWRexample\] is <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7ca51fc1935ba5d77fbfef820cbfb977.svg?invert_in_darkmode" align=middle width=78.59131500000001pt height=26.70657pt/>
+The total energy in the above figure is <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7ca51fc1935ba5d77fbfef820cbfb977.svg?invert_in_darkmode" align=middle width=78.59131500000001pt height=26.70657pt/>
 erg.
 
 Static evolution from scattered data points
@@ -284,13 +283,13 @@ Let’s start with an example, that we are planning to find a time range
 that the spectra has no evolution except the amplitude, the spectrum can
 always be fitted by a power-law, and we have already known the power-law
 amplitude <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/1f0aa5770083d7bade7ac8aafcbfc008.svg?invert_in_darkmode" align=middle width=19.521645000000003pt height=22.381919999999983pt/> and the spectral index <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/9c45015d0ef86d5f2d4cf3cc401f18b2.svg?invert_in_darkmode" align=middle width=16.502145000000002pt height=22.745910000000016pt/> at different scattered
-time <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/509bf7d4f0f63616580a39c4ed8b527d.svg?invert_in_darkmode" align=middle width=13.152810000000004pt height=20.14650000000001pt/>. <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/6044ce6c3b680a5a7be4d285d153cdd1.svg?invert_in_darkmode" align=middle width=61.629645pt height=14.748277499999999pt/></p> where F is the spectrum in unit of
+time <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/509bf7d4f0f63616580a39c4ed8b527d.svg?invert_in_darkmode" align=middle width=13.152810000000004pt height=20.14650000000001pt/>. <p align="center"><img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/6044ce6c3b680a5a7be4d285d153cdd1.svg?invert_in_darkmode" align=middle width=61.629645pt height=14.748277499999999pt/></p> <p>where F is the spectrum in unit of
 <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/21e72c507aa93b3cb7f81aebf3280864.svg?invert_in_darkmode" align=middle width=111.07882499999998pt height=26.70657pt/> and <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/7ccca27b5ccc533a2dd72dc6fa28ed84.svg?invert_in_darkmode" align=middle width=6.647503500000004pt height=14.102549999999994pt/> is the energy of photon in unit
 of <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/490bd9d7208632021d6f132bf88dd2af.svg?invert_in_darkmode" align=middle width=29.861535000000003pt height=22.745910000000016pt/>.
 
 The procedure is first to fit the power-law index at different time
 <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/9c45015d0ef86d5f2d4cf3cc401f18b2.svg?invert_in_darkmode" align=middle width=16.502145000000002pt height=22.745910000000016pt/> with a smooth curve, then to find the time range of the curve
-where its tangent’s slope is close to <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/29632a9bf827ce0200454dd32fc3be82.svg?invert_in_darkmode" align=middle width=8.188554000000002pt height=21.10812pt/>.
+where its tangent’s slope is close to <img src="https://rawgit.com/YWangScience/AstroNeuron/master/svgs/29632a9bf827ce0200454dd32fc3be82.svg?invert_in_darkmode" align=middle width=8.188554000000002pt height=21.10812pt/>. </p>
 
 **Python sample code: constant spectral index**
 
